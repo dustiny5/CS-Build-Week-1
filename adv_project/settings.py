@@ -99,7 +99,7 @@ DATABASES = {
     }
 }
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
+DATABASES['default'] = dj_database_url.config(default='postgres://jgsebqndhcapqq:f4a7b5b90d8dc260967fcc223f70b29319c88bd129cdb9f5f99f777b44944294@ec2-174-129-252-211.compute-1.amazonaws.com:5432/df2puothf2delh')
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -126,7 +126,7 @@ REST_FRAMEWORK = {
     # ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
@@ -155,3 +155,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 import django_heroku
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
