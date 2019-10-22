@@ -67,6 +67,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
+CSRF_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'adv_project.urls'
 
